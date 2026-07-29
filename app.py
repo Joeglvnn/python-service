@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify
 
 app = Flask(__name__)
@@ -11,4 +12,5 @@ def health():
     return jsonify({"status": "UP"})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8083)# Fix missing ensurepip module
+    host = os.environ.get('FLASK_HOST', '127.0.0.1')
+    app.run(host=host, port=8083)
