@@ -15,7 +15,7 @@ repos:
     rev: 1.8.3
     hooks:
       - id: bandit
-        args: ['-r', '.', '--exit-zero']
+        args: ['--exit-zero']
 
   - repo: https://github.com/hadolint/hadolint
     rev: v2.12.0
