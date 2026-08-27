@@ -13,6 +13,7 @@ service:
 
 env:
   APP_ENV: "kubernetes"
+  FLASK_HOST: "0.0.0.0"
 
 resources:
   limits:
