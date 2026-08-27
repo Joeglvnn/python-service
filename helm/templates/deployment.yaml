@@ -23,6 +23,8 @@ spec:
           env:
             - name: APP_ENV
               value: {{ .Values.env.APP_ENV }}
+            - name: FLASK_HOST
+              value: {{ .Values.env.FLASK_HOST }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
