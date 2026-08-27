@@ -1,0 +1,33 @@
+replicaCount: 2
+
+image:
+  repository: python-service
+  pullPolicy: Never
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 8083
+  nodePort: 30084
+
+env:
+  APP_ENV: "kubernetes"
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 8083
+
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 8083
